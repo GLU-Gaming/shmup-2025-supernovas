@@ -19,8 +19,8 @@ public class Screenwrapper : MonoBehaviour
 
         float leftBound = bottomLeft.x;
         float rightBound = topRight.x;
-        float bottomBound = bottomLeft.z;
-        float topBound = topRight.z;
+        float bottomBound = bottomLeft.y;
+        float topBound = topRight.y;
 
         if (newPosition.x < leftBound && objectRigidbody.linearVelocity.x < 0)
         {
@@ -31,13 +31,13 @@ public class Screenwrapper : MonoBehaviour
             newPosition.x = leftBound;
         }
 
-        if (newPosition.z < bottomBound && objectRigidbody.linearVelocity.z < 0)
+        if (newPosition.y < bottomBound && objectRigidbody.linearVelocity.z < 0)
         {
-            newPosition.z = topBound;
+            newPosition.y = topBound;
         }
         else if (newPosition.z > topBound && objectRigidbody.linearVelocity.z > 0)
         {
-            newPosition.z = bottomBound;
+            newPosition.y = bottomBound;
         }
 
         transform.position = newPosition;
