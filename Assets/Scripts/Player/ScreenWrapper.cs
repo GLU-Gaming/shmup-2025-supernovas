@@ -9,7 +9,7 @@ public class ScreenWrapper : MonoBehaviour
     }
     void Update()
     {
-        
+        Debug.Log("Player position is: " + Player.transform.position);
     }
     private void OnCollisionEnter(Collision collision)
     {
