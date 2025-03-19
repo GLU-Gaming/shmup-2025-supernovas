@@ -5,8 +5,6 @@ public class Movement : MonoBehaviour
 {
     public GameObject Player;
     public Rigidbody rb;
-    private int Topscreen = 8;
-    private int Bottemscreen = -6;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -29,13 +27,9 @@ public class Movement : MonoBehaviour
         {
             rb.AddForce(new Vector2(0, -1));
         }
-        if (Player.transform.position.y > Topscreen) 
-        {
-            transform.position = Vector3.zero;
-        }
-        if (Player.transform.position.y == Bottemscreen)
-        {
-            transform.position = Vector3.zero;
-        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        Player.transform.position = Vector3.zero;
     }
 }
