@@ -7,7 +7,6 @@ public class Menu : MonoBehaviour
 
     void Start()
     {
-        Time.timeScale = 1;
         pauseMenuUI.SetActive(false);
     }
 
@@ -16,8 +15,16 @@ public class Menu : MonoBehaviour
         //check if pause button (escape key) is pressed
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if (pauseMenuUI.activeInHierarchy)
+            {
+                pauseMenuUI.SetActive(false);
+                Time.timeScale = 1f;
+            }
+            else 
+            {
                 pauseMenuUI.SetActive(true);
-                Time.timeScale = 0f;   
+                Time.timeScale = 0f;
+            }
         }
     }
     public void Continue()
