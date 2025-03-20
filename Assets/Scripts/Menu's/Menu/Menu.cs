@@ -1,27 +1,28 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 public class Menu : MonoBehaviour
 {
- 
+    public GameObject pauseMenuUI;
+
     void Start()
     {
-        
+        Time.timeScale = 1;
+        pauseMenuUI.SetActive(false);
     }
 
     void Update()
     {
-        
+        //check if pause button (escape key) is pressed
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+                pauseMenuUI.SetActive(true);
+                Time.timeScale = 0f;   
+        }
     }
-    //Load The Game
-    public void GoToGame()
+    public void Continue()
     {
-        SceneManager.LoadScene(1);
-    }
-    // Quit Game
-    public void QuitGame()
-    {
-        Application.Quit();
-        Debug.Log("quit");
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
     }
 }
