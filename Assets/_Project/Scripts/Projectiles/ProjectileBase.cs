@@ -7,7 +7,6 @@ public class ProjectileBase : MonoBehaviour
     private float lifespan = 10f;
     private float startTime;
 
-
     private void Start()
     {
         startTime = Time.time;
