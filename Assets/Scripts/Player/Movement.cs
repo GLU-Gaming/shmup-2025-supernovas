@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public GameObject Player;
     public Rigidbody rb;
     void Start()
     {
@@ -27,9 +26,5 @@ public class Movement : MonoBehaviour
         {
             rb.AddForce(new Vector2(0, -1));
         }
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        Player.transform.position = Vector3.zero;
     }
 }
