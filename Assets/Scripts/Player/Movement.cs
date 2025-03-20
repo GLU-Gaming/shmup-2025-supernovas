@@ -9,7 +9,8 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
     void Update()
-    { 
+    {
+        if (Time.timeScale == 0) return;
         if (Input.GetAxis("Horizontal") > 0)
         {
             rb.AddForce(new Vector2(1, 0)); 
