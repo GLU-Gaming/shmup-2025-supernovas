@@ -12,18 +12,18 @@ public class ProjectileBase : MonoBehaviour
     private float startTime;
     private List<GameObject> targetsHit;
 
-    private void Start()
+    public virtual void Start()
     {
         startTime = Time.time;
     }
 
-    void Awake()
+    public virtual void Awake()
     {
         targetsHit = new List<GameObject>();
         validHits = 0;
     }
 
-    private void FixedUpdate()
+    public virtual void FixedUpdate()
     {
         transform.position += direction * speed;
     }
@@ -37,7 +37,7 @@ public class ProjectileBase : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    public virtual void OnTriggerEnter(Collider other)
     {
         GameObject hit = other.gameObject;
         // check if the target hasnt already been hit
@@ -53,7 +53,7 @@ public class ProjectileBase : MonoBehaviour
         if (!(piercing == 0 || validHits < piercing)) {Kill();}
     }
 
-    public void Kill()
+    public virtual void Kill()
     {
         Destroy(gameObject);
     }
