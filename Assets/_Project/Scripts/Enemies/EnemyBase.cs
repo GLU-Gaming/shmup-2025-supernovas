@@ -1,38 +1,21 @@
 using System.Threading;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
 {
-    public float DownMovTim;
-    private Rigidbody rb;
-    private void Start()
+    public Vector3 pos;
+    private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
-        Movement();
+        pos = transform.position;
+    }
+    public void Start()
+    {
+
     }
     private void Update()
-    {
-        DownMovTim += Time.deltaTime;
-    }
-    private void FixedUpdate()
-    {
-        Movement();
-        if (DownMovTim >= 10)
-        {
-            DownMovTim = 0;
-            Movement();
-        }
-    }
-    public void Movement()
-    {
-        if (DownMovTim < 2)
-        {
-          rb.AddForce(new Vector3(0,1,0));
-        }   
-        else 
-        {
-            rb.AddForce(new Vector3(0, -1, 0));
-        }
+    { 
+      transform.position = new Vector3(pos.x, pos.y + Mathf.Sin(Time.time)*4, 0);
     }
     public void Death()
 {
