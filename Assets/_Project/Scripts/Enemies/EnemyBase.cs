@@ -1,25 +1,40 @@
+using System;
+using System.Collections;
 using System.Threading;
+using System.Xml.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
 {
-    [SerializeField] GameObject Bullet;
-    [SerializeField] GameObject Enemy;
     public Vector3 pos;
-    private float BulletSpeed = 12.0f;
+    public GameObject Bullet;
+    public Transform Hitpoint;
+    [SerializeField] private CreationService creationService;
+
     private void Awake()
     {
         pos = transform.position;
     }
     public void Start()
     {
-        GameObject bulletObj = Instantiate(Bullet,Enemy.transform, Enemy.transform);
+        StartCoroutine(MyCoroutine());
+    }
+    IEnumerator MyCoroutine()
+    {
+        while (true)
+        {
+            creationService.CreateProjectile(0, Hitpoint);
+            yield return new WaitForSeconds(2);
+        }
     }
     private void Update()
     {
         transform.position = new Vector3(pos.x, pos.y + Mathf.Sin(Time.time) * 4, 0);
-         
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        
     }
     public void Death()
     {
