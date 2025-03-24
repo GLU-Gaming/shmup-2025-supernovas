@@ -20,6 +20,10 @@ public class EnemyBase : MonoBehaviour
     {
         StartCoroutine(MyCoroutine());
     }
+    private void Update()
+    {
+        transform.position = new Vector3(pos.x, pos.y + Mathf.Sin(Time.time) * 4, 0);
+    }
     IEnumerator MyCoroutine()
     {
         while (true)
@@ -28,13 +32,13 @@ public class EnemyBase : MonoBehaviour
             yield return new WaitForSeconds(2);
         }
     }
-    private void Update()
+    void OnTriggerEnter(Collider other)
     {
-        transform.position = new Vector3(pos.x, pos.y + Mathf.Sin(Time.time) * 4, 0);
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        
+        if (other.gameObject.CompareTag("Border"))
+        {
+            Debug.Log("Hiiii");
+            CleanUp();
+        }
     }
     public void Death()
     {
