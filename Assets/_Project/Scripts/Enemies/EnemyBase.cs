@@ -1,8 +1,3 @@
-using System;
-using System.Collections;
-using System.Threading;
-using System.Xml.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
@@ -22,8 +17,6 @@ public class EnemyBase : MonoBehaviour
     public void Death()
     {
         // add death effects, player score, possibly spawn a powerup
-
-
         CleanUp();
     }
 

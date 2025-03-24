@@ -2,9 +2,8 @@ using System.Collections;
 using UnityEngine;
 using static UnityEditor.PlayerSettings;
 
-public class EnemyA : MonoBehaviour
+public class EnemyA : EnemyBase
 {
-    public Vector3 pos;
     public GameObject Bullet;
     public Transform Hitpoint;
     [SerializeField] private CreationService creationService;
@@ -22,7 +21,7 @@ public class EnemyA : MonoBehaviour
     {
         transform.position = new Vector3(pos.x, pos.y + Mathf.Sin(Time.time) * 4, 0);
     }
-    IEnumerator MyCoroutine()
+   IEnumerator MyCoroutine()
     {
         while (true)
         {
