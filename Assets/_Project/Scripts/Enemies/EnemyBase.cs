@@ -11,7 +11,7 @@ public class EnemyBase : MonoBehaviour
     public GameObject Bullet;
     public Transform Hitpoint;
     [SerializeField] private CreationService creationService;
-
+    [SerializeField] public float Speed;
     private void Awake()
     {
         pos = transform.position;
@@ -20,6 +20,11 @@ public class EnemyBase : MonoBehaviour
     {
         StartCoroutine(MyCoroutine());
     }
+    private void FixedUpdate()
+    {
+        pos.x -= Speed;
+    }
+
     private void Update()
     {
         transform.position = new Vector3(pos.x, pos.y + Mathf.Sin(Time.time) * 4, 0);
@@ -36,7 +41,6 @@ public class EnemyBase : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Border"))
         {
-            Debug.Log("Hiiii");
             CleanUp();
         }
     }
