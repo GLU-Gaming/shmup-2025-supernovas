@@ -12,15 +12,6 @@ public class EnemyBase : MonoBehaviour
     {
         pos = transform.position;
     }
-    public void Start()
-    {
-    }
-
-    private void Update()
-    {
-      
-    }
-   
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Border"))
