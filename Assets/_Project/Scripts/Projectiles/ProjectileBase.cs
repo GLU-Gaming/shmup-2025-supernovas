@@ -4,26 +4,26 @@ using UnityEngine;
 public class ProjectileBase : MonoBehaviour
 {
     public Vector3 direction;
-    [SerializeField] private float speed = 1;
-    [SerializeField] private int damage = 1;
-    [SerializeField] private float lifespan = 10f;
-    [SerializeField] private int piercing = 0; // 0 = infinite piercing, 1 = 1 piercing, 2,3,... = 2,3,... piercing
-    private int validHits;
-    private float startTime;
-    private List<GameObject> targetsHit;
+    [SerializeField] protected float speed = 1;
+    [SerializeField] protected int damage = 1;
+    [SerializeField] protected float lifespan = 10f;
+    [SerializeField] protected int piercing = 0; // 0 = infinite piercing, 1 = 1 piercing, 2,3,... = 2,3,... piercing
+    protected int validHits;
+    protected float startTime;
+    protected List<GameObject> targetsHit;
 
-    private void Start()
+    public virtual void Start()
     {
         startTime = Time.time;
     }
 
-    void Awake()
+    public virtual void Awake()
     {
         targetsHit = new List<GameObject>();
         validHits = 0;
     }
 
-    private void FixedUpdate()
+    public virtual void FixedUpdate()
     {
         transform.position += direction * speed;
     }
@@ -37,7 +37,7 @@ public class ProjectileBase : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    public virtual void OnTriggerEnter(Collider other)
     {
         GameObject hit = other.gameObject;
         // check if the target hasnt already been hit
@@ -53,7 +53,7 @@ public class ProjectileBase : MonoBehaviour
         if (!(piercing == 0 || validHits < piercing)) {Kill();}
     }
 
-    public void Kill()
+    public virtual void Kill()
     {
         Destroy(gameObject);
     }
