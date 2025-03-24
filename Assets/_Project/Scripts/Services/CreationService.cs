@@ -10,11 +10,17 @@ public class CreationService : MonoBehaviour
     // as well as gathering Prefabs in one place.
 
     public List<GameObject> projectiles;
+    public List<GameObject> enemies;
 
     public void CreateProjectile(int index, Transform transform)
     {
         Vector3 direction = transform.rotation * Vector3.forward;
         GameObject projectile = Instantiate(projectiles[index], transform.position, transform.rotation);
         projectile.GetComponent<ProjectileBase>().direction = direction;
+    }
+
+    public void CreateEnemy(int index, Transform transform)
+    {
+        GameObject enemy = Instantiate(enemies[index], transform.position, transform.rotation);
     }
 }
