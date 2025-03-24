@@ -1,10 +1,8 @@
 using System.Collections;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class EnemyA : EnemyBase
 {
-    public GameObject Bullet;
     public Transform Hitpoint;
     [SerializeField] private CreationService creationService;
     [SerializeField] public float Speed;
