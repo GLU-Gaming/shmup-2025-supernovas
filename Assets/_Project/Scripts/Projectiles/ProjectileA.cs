@@ -9,7 +9,7 @@ public class ProjectileA : ProjectileBase
     {
         if (Time.time > startTime + fallAfter)
         {
-            speed = 0.8f;
+            speed = 0.08f;
             gameObject.GetComponent<Rigidbody>().useGravity = true;
             transform.rotation *= Quaternion.AngleAxis(3, Vector3.right);
         }
