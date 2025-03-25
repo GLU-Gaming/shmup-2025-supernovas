@@ -18,7 +18,7 @@ public class EnemyBase : MonoBehaviour
         {
             CleanUp();
         }
-        if (health.currentHealth == 0)
+        if (health.currentHealth <= 0)
         {
             Destroy(gameObject);
         }
