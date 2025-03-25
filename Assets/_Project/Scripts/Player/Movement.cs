@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class Movement : MonoBehaviour
 {
     public Rigidbody rb;
+    public GameObject DeathMenuUI;
     [SerializeField] private float speed = 1;
     [SerializeField] private CreationService creationService;
     [SerializeField] private Transform firePoint;
@@ -21,6 +22,7 @@ public class Movement : MonoBehaviour
     {
         health = GetComponent<Health>();
         rb = GetComponent<Rigidbody>();
+        DeathMenuUI.SetActive(false);
         moveAction = InputSystem.actions.FindAction("Move");
         attackAction = InputSystem.actions.FindAction("Jump");
 
@@ -51,7 +53,8 @@ public class Movement : MonoBehaviour
     {
         if (health.currentHealth == 0)
         {
-            SceneManager.LoadScene("Main Menu");
+            Destroy(gameObject);
+            DeathMenuUI.SetActive(true);
         }
     }
 }

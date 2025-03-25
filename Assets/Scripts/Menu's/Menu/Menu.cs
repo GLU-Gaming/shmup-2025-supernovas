@@ -38,4 +38,9 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+    //Load The Game
+    public void ReloadGame()
+    {
+        SceneManager.LoadScene(1);
+    }
 }
