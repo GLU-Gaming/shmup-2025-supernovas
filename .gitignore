@@ -10,6 +10,9 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
+/[Aa]ssets/_[Tt]est/
+/[Aa]ssets/_[Tt]est.meta
+
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
