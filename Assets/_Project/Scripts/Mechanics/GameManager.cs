@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator EnemySpawner()
     {
-        int enemiesToSpawn = 1;
+        int enemiesToSpawn = 4;
         while (true)
         {
 
@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
                 creationService.CreateEnemy(0, SpawnPositions[Random.Range(0, SpawnPositions.Count)]);
             }
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(4f);
         }
     }
 

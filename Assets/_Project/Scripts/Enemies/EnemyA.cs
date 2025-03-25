@@ -7,8 +7,10 @@ public class EnemyA : EnemyBase
     [SerializeField] private CreationService creationService;
     [SerializeField] public float Speed;
 
+
     void Start()
     {
+        creationService = FindAnyObjectByType<CreationService>();
         StartCoroutine(MyCoroutine());
     }
     private void FixedUpdate()
