@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class Menu : MonoBehaviour
@@ -31,5 +32,10 @@ public class Menu : MonoBehaviour
     {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
+    }
+    //Go To Menu
+    public void GoToMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
