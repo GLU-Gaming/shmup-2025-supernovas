@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyBase : MonoBehaviour
 {
     public Health health;
+    public ScreenShake shake;
     public Vector3 pos;
     private void Awake()
     {
