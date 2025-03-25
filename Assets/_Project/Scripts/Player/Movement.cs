@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float speed = 1;
     [SerializeField] private CreationService creationService;
     [SerializeField] private Transform firePoint;
+    [SerializeField] private Health health;
     public float attackCooldown = 0.2f;
     private float lastAttack;
 
@@ -17,6 +19,7 @@ public class Movement : MonoBehaviour
 
     void Start()
     {
+        health = GetComponent<Health>();
         rb = GetComponent<Rigidbody>();
         moveAction = InputSystem.actions.FindAction("Move");
         attackAction = InputSystem.actions.FindAction("Jump");
@@ -42,6 +45,13 @@ public class Movement : MonoBehaviour
         {
             lastAttack = Time.time;
             creationService.CreateProjectile(1, firePoint);
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (health.currentHealth == 0)
+        {
+            SceneManager.LoadScene("Main Menu");
         }
     }
 }
