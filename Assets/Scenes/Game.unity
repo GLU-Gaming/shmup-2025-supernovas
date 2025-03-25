@@ -212,7 +212,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 163625219}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Firepoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -727,7 +727,8 @@ GameObject:
   - component: {fileID: 1109234877}
   - component: {fileID: 1109234881}
   - component: {fileID: 1109234882}
-  m_Layer: 0
+  - component: {fileID: 1109234883}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -868,6 +869,20 @@ MonoBehaviour:
   creationService: {fileID: 1632447366}
   firePoint: {fileID: 163625219}
   attackCooldown: 0.4
+--- !u!114 &1109234883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109234874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b984c65d79a93048bc5a214aa05d093, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  currentHealth: 0
 --- !u!1 &1247384244
 GameObject:
   m_ObjectHideFlags: 0
