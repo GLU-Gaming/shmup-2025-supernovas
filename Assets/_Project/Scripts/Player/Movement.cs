@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class Movement : MonoBehaviour
 {
     public Rigidbody rb;
+    public GameObject DeathMenuUI;
     [SerializeField] private float speed = 1;
     [SerializeField] private CreationService creationService;
     [SerializeField] private Transform firePoint;
@@ -23,6 +24,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        DeathMenuUI.SetActive(false);
         moveAction = InputSystem.actions.FindAction("Move");
         attackAction = InputSystem.actions.FindAction("Jump");
 
