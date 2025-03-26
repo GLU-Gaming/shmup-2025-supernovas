@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6871321172342584894}
   - component: {fileID: 1424005837792062715}
   m_Layer: 7
-  m_Name: _enemy_
+  m_Name: Enemy_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,10 +97,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c6485869f08a404a9a6fa1c2d5c3fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 1424005837792062715}
   pos: {x: 0, y: 0, z: 0}
-  Hitpoint: {fileID: 5695521363019315694}
+  health: {fileID: 1424005837792062715}
   creationService: {fileID: 0}
+  firePoint: {fileID: 5695521363019315694}
   Speed: 0.03
   RotationPart: {fileID: 6940552635954881829}
   RotationSpeed: 12
@@ -118,6 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 2
   currentHealth: 0
+  isAlive: 0
 --- !u!1 &5063752918279972547
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,12 +2,18 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
 {
-    public Health health;
     public Vector3 pos;
+    public Health health;
+    public CreationService creationService;
+    public Transform firePoint;
+
     private void Awake()
     {
         pos = transform.position;
+        creationService = FindAnyObjectByType<CreationService>();
         health = GetComponent<Health>();
+
+        // subscribe to death event from the health script
         health.EntityDied += Death;
     }
 

@@ -3,16 +3,13 @@ using UnityEngine;
 
 public class EnemyA : EnemyBase
 {
-    public Transform Hitpoint;
-    [SerializeField] private CreationService creationService;
     [SerializeField] private float Speed;
     [SerializeField] private GameObject RotationPart;
     [SerializeField] private float RotationSpeed = 3;
 
     void Start()
     {
-        creationService = FindAnyObjectByType<CreationService>();
-        StartCoroutine(MyCoroutine());
+        StartCoroutine(FireProjectile());
     }
     private void FixedUpdate()
     {
@@ -23,11 +20,11 @@ public class EnemyA : EnemyBase
     {
         transform.position = new Vector3(pos.x, pos.y + Mathf.Sin(Time.time) * 4, 0);
     }
-    IEnumerator MyCoroutine()
+    IEnumerator FireProjectile()
     {
-        while (true)
+        while (health.isAlive)
         {
-            creationService.CreateProjectile(0, Hitpoint);
+            creationService.CreateProjectile(0, firePoint);
             yield return new WaitForSeconds(2);
         }
     }
