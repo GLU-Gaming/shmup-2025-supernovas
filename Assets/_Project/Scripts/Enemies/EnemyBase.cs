@@ -7,31 +7,28 @@ public class EnemyBase : MonoBehaviour
     private void Awake()
     {
         pos = transform.position;
+        health = GetComponent<Health>();
+        health.EntityDied += Death;
     }
-    private void Start()
-    {
-        health = GetComponent<Health>();    
-    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Border"))
         {
             CleanUp();
         }
-        if (health.currentHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
     }
+
+    // ENEMY IS KILL!!!!!
     public void Death()
     {
         // add death effects, player score, possibly spawn a powerup
         CleanUp();
     }
 
+    // Destroy the gameObject without triggering death effects
     public void CleanUp()
     {
         Destroy(gameObject);
     }
-
 }
