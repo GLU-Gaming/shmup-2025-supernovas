@@ -6,23 +6,20 @@ public class ScreenShake : MonoBehaviour
 {
     public bool start = false;
     public float duration = 1.0f;
-    public AnimationCurve curve;
+    public float intensity;
 
-    void Update()
+   void StartShake()
     {
-        if (start)
-        {
-            StartCoroutine(Shaking());
-        }
+        StartCoroutine(Shaking(1.0f,0.2f));
     }
-    IEnumerator Shaking()
+    IEnumerator Shaking(float duration,float intensity)
     {
         Vector3 startPosition = transform.position;
         float esapsedTime = 0f;
         while (esapsedTime < duration)
         {
             esapsedTime += Time.deltaTime;
-            float strength = curve.Evaluate(esapsedTime / duration);
+            float strength = intensity;
             transform.position = startPosition + Random.insideUnitSphere * strength;
             yield return null;
         }
