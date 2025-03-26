@@ -1,6 +1,6 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -9,18 +9,20 @@ public class Movement : MonoBehaviour
     [SerializeField] private float speed = 1;
     [SerializeField] private CreationService creationService;
     [SerializeField] private Transform firePoint;
-    [SerializeField] private Health health;
+    [SerializeField] private Vector2 Size;
     public float attackCooldown = 0.2f;
     private float lastAttack;
-
+    Vector3 boundry;
     InputAction moveAction;
     InputAction attackAction;
 
-
+    void Awake()
+    {
+        boundry = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, Camera.main.transform.position.y));
+    }
 
     void Start()
     {
-        health = GetComponent<Health>();
         rb = GetComponent<Rigidbody>();
         DeathMenuUI.SetActive(false);
         moveAction = InputSystem.actions.FindAction("Move");
@@ -32,29 +34,23 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 moveValue = moveAction.ReadValue<Vector2>();
+        moveValue = 0.08f * speed * moveValue.normalized;
 
         if (Time.timeScale == 0) return;
-        transform.position += new Vector3(moveValue.x * speed * 0.08f, moveValue.y * speed * 0.08f);
-
+        Vector3 newPos = transform.position + new Vector3(moveValue.x , moveValue.y);
+        newPos.x = Mathf.Clamp(newPos.x,-boundry.x+Size.x*0.5f,boundry.x-Size.x*0.5f);
+        newPos.y = Mathf.Clamp(newPos.y,-boundry.y+Size.y*0.5f,boundry.y-Size.y*0.5f);
+        transform.position = newPos;
     }
 
     void Update()
     {
         if (Time.timeScale == 0) return;
 
-
         if (attackAction.IsPressed() && Time.time > lastAttack + attackCooldown)
         {
             lastAttack = Time.time;
             creationService.CreateProjectile(1, firePoint);
-        }
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (health.currentHealth == 0)
-        {
-            Destroy(gameObject);
-            DeathMenuUI.SetActive(true);
         }
     }
 }
