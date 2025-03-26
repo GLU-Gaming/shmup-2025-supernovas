@@ -102,6 +102,8 @@ MonoBehaviour:
   Hitpoint: {fileID: 5695521363019315694}
   creationService: {fileID: 0}
   Speed: 0.03
+  RotationPart: {fileID: 6940552635954881829}
+  RotationSpeed: 12
 --- !u!114 &1424005837792062715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,5 +212,10 @@ PrefabInstance:
 --- !u!4 &3655668423627663711 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9c5c0ce7f24a7304195f33957263a36e, type: 3}
+  m_PrefabInstance: {fileID: 3832900203485925044}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6940552635954881829 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3071180390171350127, guid: 9c5c0ce7f24a7304195f33957263a36e, type: 3}
   m_PrefabInstance: {fileID: 3832900203485925044}
   m_PrefabAsset: {fileID: 0}
