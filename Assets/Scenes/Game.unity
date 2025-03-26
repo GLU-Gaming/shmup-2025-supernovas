@@ -1188,6 +1188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  isAlive: 0
 --- !u!1 &1247384244
 GameObject:
   m_ObjectHideFlags: 0
@@ -1390,6 +1391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1440025022}
   - component: {fileID: 1440025021}
+  - component: {fileID: 1440025023}
   m_Layer: 0
   m_Name: Enemyborder
   m_TagString: Border
@@ -1416,7 +1418,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4, y: 1, z: 1}
+  m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1440025022
 Transform:
@@ -1433,6 +1435,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1440025023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440025020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cef3c6427cfc4f4db2b35929bbdd11d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  despawn: 1
 --- !u!1 &1623041280
 GameObject:
   m_ObjectHideFlags: 0

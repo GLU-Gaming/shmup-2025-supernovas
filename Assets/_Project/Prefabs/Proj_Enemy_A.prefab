@@ -71,7 +71,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   speed: 0.1
   damage: 1
-  lifespan: 10
+  lifespan: 5
   piercing: 1
   fallAfter: 1.5
 --- !u!54 &8849894786655516210
