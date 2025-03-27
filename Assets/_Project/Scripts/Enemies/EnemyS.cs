@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyS : EnemyBase
 {
     [SerializeField] private Transform Firepoint;
+    [SerializeField] private GameObject rotationPart;
     private CreationService creationService;
 
 
@@ -17,29 +18,22 @@ public class EnemyS : EnemyBase
     void Start()
     {
         creationService = FindAnyObjectByType<CreationService>();
-        StartCoroutine(MyCoroutine());
-    }
-    private void FixedUpdate()
-    {
-
     }
 
-    void Update()
+    public IEnumerator DiveAnim()
     {
-        float scaledT = Time.time * speed;
-        float x = Mathf.Cos(scaledT);
-        float y = -Mathf.Abs(Mathf.Sin(scaledT));
-        float r = x * rMult + rOffset;
+        float startT = Time.time;
+        float localT = 0f;
 
-        transform.SetPositionAndRotation(pos + new Vector3(x * lenght, y * depth, 0), Quaternion.AngleAxis(r, Vector3.forward));
-    }
-
-    IEnumerator MyCoroutine()
-    {
-        while (true)
+        while (Time.time < startT + 1/speed*Mathf.PI)
         {
-            creationService.CreateProjectile(0, Firepoint);
-            yield return new WaitForSeconds(2);
+            float scaledT = localT * speed;
+            float x = Mathf.Cos(scaledT);
+            float y = -Mathf.Abs(Mathf.Sin(scaledT));
+            float r = x * rMult + rOffset;
+            rotationPart.transform.SetPositionAndRotation(pos + new Vector3(x * lenght, y * depth, 0), Quaternion.AngleAxis(r, Vector3.forward));
+            localT += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
         }
     }
 }
