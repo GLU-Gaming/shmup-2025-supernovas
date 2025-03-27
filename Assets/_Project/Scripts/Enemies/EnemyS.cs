@@ -5,7 +5,6 @@ public class EnemyS : EnemyBase
 {
     [SerializeField] private Transform Firepoint;
     [SerializeField] private GameObject rotationPart;
-    private CreationService creationService;
 
 
     // dive anim parameters:
@@ -15,10 +14,6 @@ public class EnemyS : EnemyBase
     [SerializeField] float rOffset;
     [SerializeField] float rMult;
 
-    void Start()
-    {
-        creationService = FindAnyObjectByType<CreationService>();
-    }
 
     public IEnumerator DiveAnim()
     {
