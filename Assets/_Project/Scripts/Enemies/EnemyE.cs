@@ -1,16 +1,23 @@
 using UnityEngine;
 
-public class EnemyE : MonoBehaviour
+public class EnemyE : EnemyBase
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] float speed = 0.18f;
+    [SerializeField] Transform rotationPart;
+    void FixedUpdate()
     {
-        
+
+        //pos += Vector3.Cross(transform.forward, Vector3.up)*speed;
+        float dP = player.transform.position.y - pos.y;
+        pos.y = Mathf.Lerp(pos.y,pos.y+dP,0.05f);
+        pos.x -= speed;
+
+        rotationPart.transform.rotation = Quaternion.AngleAxis(dP*10,Vector3.back);
+        //transform.rotation *= Quaternion.AngleAxis(dP,Vector3.forward);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        transform.position = pos;
     }
 }

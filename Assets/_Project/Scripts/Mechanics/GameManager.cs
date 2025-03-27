@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
             for (int i = 0; i < enemiesToSpawn; i++)
             {
-                creationService.CreateEnemy(0, SpawnPositions[Random.Range(0, SpawnPositions.Count)]);
+                creationService.CreateEnemy(Random.Range(0, creationService.enemies.Count), SpawnPositions[Random.Range(0, SpawnPositions.Count)]);
             }
 
             yield return new WaitForSeconds(4f);

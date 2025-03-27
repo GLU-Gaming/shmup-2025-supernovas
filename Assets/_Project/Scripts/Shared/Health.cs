@@ -6,7 +6,7 @@ public class Health : MonoBehaviour
     public event EventHandler EntityDied;
     public int maxHealth;
     public int currentHealth;
-    public bool isAlive;
+    public bool isAlive = true;
 
     void Awake()
     {
