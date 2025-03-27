@@ -2,12 +2,11 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-
     public delegate void EventHandler();
     public event EventHandler EntityDied;
     public int maxHealth;
     public int currentHealth;
-    private bool isAlive;
+    public bool isAlive;
 
     void Awake()
     {
