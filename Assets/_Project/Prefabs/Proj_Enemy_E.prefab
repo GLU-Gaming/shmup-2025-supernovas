@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 2487736033161125579}
   - component: {fileID: 3960044929729699788}
   - component: {fileID: 8106741887986291286}
+  - component: {fileID: -834094025363226057}
   m_Layer: 8
-  m_Name: Proj_E
+  m_Name: Proj_Enemy_E
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,7 +102,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 384
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -126,5 +127,33 @@ MonoBehaviour:
   damage: 1
   lifespan: 2
   piercing: 0
-  scaleUpBy: 2.5
-  scaleUpIn: 0.5
+  scaleStart: {x: 0.5, y: 0.5, z: 0.5}
+  scaleUpBy: {x: 3, y: 3, z: 3}
+  scaleUpIn: 0.2
+--- !u!54 &-834094025363226057
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7607461475767199394}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

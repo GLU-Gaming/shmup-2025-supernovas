@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class ProjectileE : ProjectileBase
 {
-    [SerializeField] private float scaleUpBy;
+    [SerializeField] private Vector3 scaleStart;
+    [SerializeField] private Vector3 scaleUpBy;
     [SerializeField] private float scaleUpIn;
     private Vector3 fullScale;
 
@@ -10,7 +11,7 @@ public class ProjectileE : ProjectileBase
     {
         base.Awake();
         transform.localScale = Vector3.zero;
-        fullScale = new Vector3(1, 1, 1) * scaleUpBy;
+        fullScale = scaleStart + scaleUpBy;
     }
     public override void FixedUpdate()
     {

@@ -8,7 +8,7 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] protected Transform firePoint;
     protected GameObject player;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         pos = transform.position;
         creationService = FindAnyObjectByType<CreationService>();
@@ -19,7 +19,7 @@ public class EnemyBase : MonoBehaviour
         health.EntityDied += Death;
     }
 
-    void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Border"))
         {

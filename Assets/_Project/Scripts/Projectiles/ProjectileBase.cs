@@ -41,7 +41,7 @@ public class ProjectileBase : MonoBehaviour
     {
         GameObject hit = other.gameObject;
         // check if the target hasnt already been hit and that multiple enemies arent being hit at once
-        if (targetsHit.Contains(hit) || validHits >= piercing) { return; }
+        if (targetsHit.Contains(hit) || (validHits >= piercing && piercing != 0)) { return; }
         targetsHit.Add(hit);
         // check if the target has health, projectile wont be able to hit things it shouldnt so checking for that is unnecessary
         hit.TryGetComponent<Health>(out Health hitHP);
