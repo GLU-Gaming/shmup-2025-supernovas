@@ -4,9 +4,9 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float speed = 1;
-    [SerializeField] private CreationService creationService;
     [SerializeField] private Transform firePoint;
     [SerializeField] private Vector2 Size;
+    private CreationService creationService;
     public float attackCooldown = 0.2f;
     private float lastAttack = 0;
     Vector3 boundry;
@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 
     void Awake()
     {
+        creationService = FindAnyObjectByType<CreationService>();
         boundry = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, Camera.main.transform.position.y));
         moveAction = InputSystem.actions.FindAction("Move");
         attackAction = InputSystem.actions.FindAction("Jump");
