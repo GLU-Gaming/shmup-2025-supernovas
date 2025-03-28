@@ -154,4 +154,3 @@ MonoBehaviour:
   damage: 1
   lifespan: 10
   piercing: 1
-  fallAfter: 1
