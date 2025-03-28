@@ -4,6 +4,7 @@ public class Health : MonoBehaviour
 {
     public delegate void EventHandler();
     public event EventHandler EntityDied;
+    public event EventHandler EntityDamaged;
     public int maxHealth;
     public int currentHealth;
     public bool isAlive = true;
@@ -17,6 +18,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
+        EntityDamaged?.Invoke();
         if (currentHealth <= 0)
         {
             Death();
