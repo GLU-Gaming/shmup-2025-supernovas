@@ -1035,7 +1035,7 @@ GameObject:
   - component: {fileID: 1109234883}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1616,6 +1616,7 @@ MonoBehaviour:
   projectiles:
   - {fileID: 5568637904728337353, guid: e4795efd5e7a62345b5ff2add3413ac2, type: 3}
   - {fileID: 3464696625389696939, guid: 8fbc8695880fb9949b84376efad6bb8c, type: 3}
+  - {fileID: 7607461475767199394, guid: 1fef4c742fc1592439918538231b880c, type: 3}
   enemies:
   - {fileID: 436465828625538579, guid: 6704c8b2aba111b41ad615f63e026153, type: 3}
   - {fileID: 4522292191621643153, guid: 8cdb01f2c04db40429339b69d18b6f8b, type: 3}

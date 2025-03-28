@@ -28,7 +28,7 @@ public class EnemyBase : MonoBehaviour
     }
 
     // ENEMY IS KILL!!!!!
-    public void Death()
+    public virtual void Death()
     {
         // add death effects, player score, possibly spawn a powerup
         CleanUp();

@@ -125,11 +125,14 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   speed: 0
   damage: 1
-  lifespan: 2
+  lifespan: 3
   piercing: 0
   scaleStart: {x: 0.5, y: 0.5, z: 0.5}
-  scaleUpBy: {x: 3, y: 3, z: 3}
-  scaleUpIn: 0.2
+  scaleUpTo: {x: 3, y: 3, z: 3}
+  scaleDownTo: {x: 0, y: 0, z: 0}
+  scaleUpIn: 0.1
+  scaleDownIn: 0.6
+  scaleDownAfter: 1.5
 --- !u!54 &-834094025363226057
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -31,6 +31,12 @@ public class EnemyE : EnemyBase
         CleanUp();
     }
 
+    public override void Death()
+    {
+        Explode();
+        base.Death();
+    }
+
     void Update()
     {
         transform.position = pos;
