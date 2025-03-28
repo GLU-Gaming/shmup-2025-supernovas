@@ -15,12 +15,23 @@ public class EnemyS : EnemyBase
     [SerializeField] float rMult;
 
 
-    public IEnumerator DiveAnim()
+    protected override void Awake()
+    {
+        base.Awake();
+        Dive();
+    }
+
+    public void Dive()
+    {
+        StartCoroutine(DiveAnim());
+    }
+
+    private IEnumerator DiveAnim()
     {
         float startT = Time.time;
         float localT = 0f;
 
-        while (Time.time < startT + 1/speed*Mathf.PI)
+        while (Time.time < startT + 1 / speed * Mathf.PI)
         {
             float scaledT = localT * speed;
             float x = Mathf.Cos(scaledT);

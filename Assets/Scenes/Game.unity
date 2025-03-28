@@ -525,6 +525,37 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!1 &617465147
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 617465148}
+  m_Layer: 0
+  m_Name: S_Spawn (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &617465148
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617465147}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1247384246}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &756869331
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,6 +738,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &848323722
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 848323723}
+  m_Layer: 0
+  m_Name: S_Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &848323723
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848323722}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1247384246}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &916207568
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,6 +1084,9 @@ MonoBehaviour:
   - {fileID: 1816778059}
   - {fileID: 985160421}
   - {fileID: 13878417}
+  S_SpawnPositions:
+  - {fileID: 848323723}
+  - {fileID: 617465148}
   creationService: {fileID: 1632447366}
 --- !u!4 &1247384246
 Transform:
@@ -1037,6 +1102,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1961527506}
+  - {fileID: 848323723}
+  - {fileID: 617465148}
   - {fileID: 1778595398}
   - {fileID: 1816778059}
   - {fileID: 985160421}
@@ -1418,6 +1485,7 @@ MonoBehaviour:
   enemies:
   - {fileID: 436465828625538579, guid: 6704c8b2aba111b41ad615f63e026153, type: 3}
   - {fileID: 4522292191621643153, guid: 8cdb01f2c04db40429339b69d18b6f8b, type: 3}
+  - {fileID: 6771600807827167131, guid: 34e695b49c99ed74c8c6cfa13945cb1e, type: 3}
 --- !u!4 &1632447367
 Transform:
   m_ObjectHideFlags: 0
