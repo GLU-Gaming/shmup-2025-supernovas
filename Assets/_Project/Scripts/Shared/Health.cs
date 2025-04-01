@@ -2,9 +2,12 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    public delegate void EventHandler();
+    public event EventHandler EntityDied;
+    public event EventHandler EntityDamaged;
     public int maxHealth;
     public int currentHealth;
-    private bool isAlive;
+    public bool isAlive = true;
 
     void Awake()
     {
@@ -15,6 +18,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
+        EntityDamaged?.Invoke();
         if (currentHealth <= 0)
         {
             Death();
@@ -24,6 +28,6 @@ public class Health : MonoBehaviour
     public void Death()
     {
         isAlive = false;
-        // code related to killing the entity, remove this function is it is deemed unnecessary
+        EntityDied?.Invoke();
     }
 }

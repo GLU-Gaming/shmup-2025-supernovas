@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class ProjectilePlayer : ProjectileBase
 {
-    [SerializeField] private float fallAfter = 1;
     public override void FixedUpdate()
     {
         transform.position += transform.forward * speed;
