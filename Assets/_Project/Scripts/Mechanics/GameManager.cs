@@ -27,5 +27,4 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(4f);
         }
     }
-
 }

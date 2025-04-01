@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -7,13 +8,11 @@ public class Health : MonoBehaviour
     public int maxHealth;
     public int currentHealth;
     public bool isAlive = true;
-
     void Awake()
     {
         currentHealth = maxHealth;
         isAlive = true;
     }
-
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;

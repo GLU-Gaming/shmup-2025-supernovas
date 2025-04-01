@@ -115,6 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 2
   currentHealth: 0
+  livesUI: []
   isAlive: 1
 --- !u!1 &5063752918279972547
 GameObject:

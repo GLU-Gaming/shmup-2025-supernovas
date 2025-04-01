@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private Vector2 Size;
     public float attackCooldown = 0.2f;
+    private float lifebarx = 0.6f;
+    public GameObject lives;
     private float lastAttack = 0;
     Vector3 boundry;
     InputAction moveAction;
@@ -42,6 +45,15 @@ public class Player : MonoBehaviour
         {
             lastAttack = Time.time;
             creationService.CreateProjectile(1, firePoint);
+        }
+        UpdateLivesUI();
+    }
+    public void UpdateLivesUI()
+    {
+        if (lifebarx > 0.025f) // Prevents bar from disappearing completely
+        {
+            lifebarx -= 0.025f;
+            lives.transform.localScale = new Vector3(lifebarx, 0.5f, 1);
         }
     }
 }
