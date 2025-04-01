@@ -1,4 +1,7 @@
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class EnemyBase : MonoBehaviour
 {
@@ -6,7 +9,9 @@ public class EnemyBase : MonoBehaviour
     protected Health health;
     protected CreationService creationService;
     [SerializeField] protected Transform firePoint;
-    protected GameObject player;
+    [SerializeField] protected int scoreamount;
+    protected Score score;
+    protected GameObject player;  
 
     protected virtual void Awake()
     {
@@ -14,6 +19,7 @@ public class EnemyBase : MonoBehaviour
         creationService = FindAnyObjectByType<CreationService>();
         health = GetComponent<Health>();
         player = FindAnyObjectByType<Player>().gameObject;
+        score = FindAnyObjectByType<Score>();
 
         // subscribe to death event from the health script
         health.EntityDied += Death;
@@ -30,7 +36,8 @@ public class EnemyBase : MonoBehaviour
     // ENEMY IS KILL!!!!!
     public virtual void Death()
     {
-        // add death effects, player score, possibly spawn a powerup
+        // add death effects, player score, possibly spawn a powerup  
+        score.UiUpdate(scoreamount);
         CleanUp();
     }
 
