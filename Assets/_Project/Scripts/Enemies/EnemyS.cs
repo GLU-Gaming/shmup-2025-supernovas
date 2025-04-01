@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class EnemyS : EnemyBase
 {
-    [SerializeField] private Transform Firepoint;
     [SerializeField] private GameObject rotationPart;
 
 
@@ -19,6 +18,7 @@ public class EnemyS : EnemyBase
     {
         base.Awake();
         Dive();
+        creationService.CreateProjectile(3, transform);
     }
 
     public void Dive()
@@ -41,5 +41,6 @@ public class EnemyS : EnemyBase
             localT += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
+        CleanUp();
     }
 }
