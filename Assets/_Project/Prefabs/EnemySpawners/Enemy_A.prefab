@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 5695521363019315694}
+  scoreamount: 10
   Speed: 0.03
   RotationPart: {fileID: 6940552635954881829}
   RotationSpeed: 12
