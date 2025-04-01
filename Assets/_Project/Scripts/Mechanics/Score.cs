@@ -8,12 +8,12 @@ public class Score : MonoBehaviour
     void Start()
     {
         score = 0;
-        scoreText.text = "Score" + score;
+        UiUpdate(0);
     }
     public void UiUpdate(int amount)
     {
         score = score + amount;
         score = Mathf.Clamp(score, 0, 2147483647);
-        scoreText.text = "Score" + score;
+        scoreText.text = "Score: " + score;
     }
 }

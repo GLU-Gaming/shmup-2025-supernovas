@@ -71,6 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 6050464454662099235}
+  scoreamount: 100
   speed: 0.24
   rotationPart: {fileID: 6446134115206454895}
 --- !u!114 &2147664899281352463
