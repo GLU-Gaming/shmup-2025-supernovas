@@ -1777,8 +1777,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c74fd90cdb136d49b124dab0cde678a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadInGracePeriod: 3
-  waveCooldown: 15
+  loadInGracePeriod: 2
+  waveCooldown: 7
   waves:
   - {fileID: 3649269112375477280, guid: 8f09f498cdbed9b45bbb9cf057f8d3ef, type: 3}
   - {fileID: 207229138109907416, guid: da580414b464d6c4fb0c0c3e460864ae, type: 3}
@@ -2025,6 +2025,18 @@ PrefabInstance:
     - target: {fileID: 686428761378390574, guid: f751cac2b488c444e9293d4740d6cbbd, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3089492384453947636, guid: f751cac2b488c444e9293d4740d6cbbd, type: 3}
+      propertyPath: m_Size.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3089492384453947636, guid: f751cac2b488c444e9293d4740d6cbbd, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814410589504775438, guid: f751cac2b488c444e9293d4740d6cbbd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6690460397052413277, guid: f751cac2b488c444e9293d4740d6cbbd, type: 3}
       propertyPath: m_LocalScale.x
