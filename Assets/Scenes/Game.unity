@@ -1218,7 +1218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1247384245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1721,6 +1721,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1632447367}
   - component: {fileID: 1632447366}
+  - component: {fileID: 1632447368}
   m_Layer: 0
   m_Name: Services
   m_TagString: Untagged
@@ -1764,6 +1765,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1632447368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632447365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c74fd90cdb136d49b124dab0cde678a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadInGracePeriod: 3
+  waveCooldown: 15
+  waves:
+  - {fileID: 3649269112375477280, guid: 8f09f498cdbed9b45bbb9cf057f8d3ef, type: 3}
+  - {fileID: 207229138109907416, guid: da580414b464d6c4fb0c0c3e460864ae, type: 3}
+  - {fileID: 752139346743877810, guid: 6abe1950ea8f3e941a251c0773445a59, type: 3}
 --- !u!1 &1693293156
 GameObject:
   m_ObjectHideFlags: 0
