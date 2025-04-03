@@ -40,6 +40,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4832624663268094466}
+  - component: {fileID: 2489473701057205555}
+  - component: {fileID: 8433514195216959861}
   m_Layer: 7
   m_Name: Visual
   m_TagString: Untagged
@@ -63,6 +65,42 @@ Transform:
   - {fileID: 7453371796819934609}
   m_Father: {fileID: 6296266675713899024}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2489473701057205555
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4152808153096699764}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.8, y: 0.8, z: 0.8}
+  m_Center: {x: 0.3, y: 0, z: 0}
+--- !u!114 &8433514195216959861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4152808153096699764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b984c65d79a93048bc5a214aa05d093, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  currentHealth: 0
+  isAlive: 1
 --- !u!1 &6771600807827167131
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,9 +110,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6296266675713899024}
-  - component: {fileID: 491515264677188318}
   - component: {fileID: 1511447791334344670}
-  - component: {fileID: 934827011803418005}
   - component: {fileID: 8103397408745423065}
   m_Layer: 7
   m_Name: Enemy_S
@@ -100,27 +136,6 @@ Transform:
   - {fileID: 4832624663268094466}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &491515264677188318
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6771600807827167131}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1511447791334344670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,28 +148,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5070bc290b3cefd4db1c4db48e98bfaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 8433514195216959861}
   firePoint: {fileID: 1839617691108774667}
+  scoreamount: 0
   rotationPart: {fileID: 4152808153096699764}
   speed: 2
   lenght: 13
   depth: 4
   rOffset: 20
   rMult: 30
---- !u!114 &934827011803418005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6771600807827167131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b984c65d79a93048bc5a214aa05d093, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 10
-  currentHealth: 0
-  isAlive: 1
 --- !u!54 &8103397408745423065
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -246,9 +248,25 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6733177361254619370, guid: 9b302210f4579b34792f70d060629a55, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -5568371526223589888, guid: 9b302210f4579b34792f70d060629a55, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9b302210f4579b34792f70d060629a55, type: 3}
       propertyPath: m_Name
       value: slagroom spuitbus
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9b302210f4579b34792f70d060629a55, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513859187771203891, guid: 9b302210f4579b34792f70d060629a55, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

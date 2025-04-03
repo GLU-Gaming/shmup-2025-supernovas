@@ -1,23 +1,26 @@
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class EnemyBase : MonoBehaviour
 {
     protected Vector3 pos;
-    protected Health health;
+    [SerializeField] protected Health health;
     protected CreationService creationService;
     [SerializeField] protected Transform firePoint;
     [SerializeField] protected int scoreamount;
     protected Score score;
-    protected GameObject player;  
+    protected GameObject player;
+    protected float startTime;
+
+    protected virtual void Start()
+    {
+        startTime = Time.time;
+    }
 
     protected virtual void Awake()
     {
         pos = transform.position;
         creationService = FindAnyObjectByType<CreationService>();
-        health = GetComponent<Health>();
+        if (!health) { TryGetComponent<Health>(out health); }
         player = FindAnyObjectByType<Player>().gameObject;
         score = FindAnyObjectByType<Score>();
 
