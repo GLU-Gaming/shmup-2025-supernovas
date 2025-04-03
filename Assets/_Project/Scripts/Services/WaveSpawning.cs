@@ -16,6 +16,15 @@ public class WaveSpawning : MonoBehaviour
         StartCoroutine(Spawning());
     }
 
+    public void ToggleWaves()
+    {
+        doSpawning = !doSpawning;
+        if (doSpawning)
+        {
+            StartCoroutine(Spawning());
+        }
+    }
+
     IEnumerator Spawning()
     {
         yield return new WaitForSeconds(loadInGracePeriod);
