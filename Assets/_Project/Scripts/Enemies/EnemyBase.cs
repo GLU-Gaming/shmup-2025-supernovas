@@ -9,12 +9,18 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] protected int scoreamount;
     protected Score score;
     protected GameObject player;
+    protected float startTime;
+
+    protected virtual void Start()
+    {
+        startTime = Time.time;
+    }
 
     protected virtual void Awake()
     {
         pos = transform.position;
         creationService = FindAnyObjectByType<CreationService>();
-        if (!health) {TryGetComponent<Health>(out health);}
+        if (!health) { TryGetComponent<Health>(out health); }
         player = FindAnyObjectByType<Player>().gameObject;
         score = FindAnyObjectByType<Score>();
 

@@ -22,8 +22,12 @@ public class WaveSpawning : MonoBehaviour
         while (doSpawning)
         {
             int rng1 = Random.Range(0,waves.Count);
-            Instantiate(waves[rng1]);
-            yield return new WaitForSeconds(waveCooldown);
+            GameObject wave = Instantiate(waves[rng1]);
+            //WaveInfo waveInfo = wave.GetComponent<WaveInfo>();
+            float waveLenght = wave.GetComponent<WaveInfo>().waveLenght;
+            Destroy(wave, waveLenght);
+            
+            yield return new WaitForSeconds(waveCooldown + waveLenght);
         }
     }
 }

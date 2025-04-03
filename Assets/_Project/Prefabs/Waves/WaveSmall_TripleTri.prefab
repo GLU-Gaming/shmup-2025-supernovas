@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4689460943845036838}
+  - component: {fileID: 2424424433634603313}
   m_Layer: 0
   m_Name: WaveSmall_TripleTri
   m_TagString: Untagged
@@ -34,6 +35,19 @@ Transform:
   - {fileID: 3546708667778027576}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2424424433634603313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752139346743877810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c72b80983929a94f87436daea29519f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveLenght: 9
 --- !u!1 &5085903425664823420
 GameObject:
   m_ObjectHideFlags: 0
@@ -81,7 +95,7 @@ MonoBehaviour:
   index: 0
   spawnTime: 0
   repeat: 2
-  repeatTime: 5
+  repeatTime: 3
 --- !u!1 &8736860737562306370
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,7 +143,7 @@ MonoBehaviour:
   index: 0
   spawnTime: 0
   repeat: 2
-  repeatTime: 5
+  repeatTime: 3
 --- !u!1 &8835721598183629035
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,4 +191,4 @@ MonoBehaviour:
   index: 0
   spawnTime: 0
   repeat: 2
-  repeatTime: 5
+  repeatTime: 3

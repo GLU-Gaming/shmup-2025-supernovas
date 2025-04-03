@@ -1778,7 +1778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadInGracePeriod: 2
-  waveCooldown: 7
+  waveCooldown: 1
   waves:
   - {fileID: 3649269112375477280, guid: 8f09f498cdbed9b45bbb9cf057f8d3ef, type: 3}
   - {fileID: 207229138109907416, guid: da580414b464d6c4fb0c0c3e460864ae, type: 3}
