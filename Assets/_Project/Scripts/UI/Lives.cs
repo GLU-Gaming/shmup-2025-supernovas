@@ -9,6 +9,7 @@ public class Lives : MonoBehaviour
     void Start()
     {
         playerHealth.EntityDamaged += UpdateUi;
+        UpdateUi();
     }
 
     void UpdateUi()
