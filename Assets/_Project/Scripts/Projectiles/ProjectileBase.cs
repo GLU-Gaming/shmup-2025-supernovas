@@ -66,8 +66,8 @@ public class ProjectileBase : MonoBehaviour
         // check if the target has health, projectile wont be able to hit things it shouldnt so checking for that is unnecessary
         hit.TryGetComponent<Health>(out Health hitHP);
         if (!hitHP) { return; }
-        hitHP.TakeDamage(damage);
-
+        bool h = hitHP.TakeDamage(damage);
+        if (!h) {return;}
         // increment valid hits and kill the projectile if it cant pierce more.
         validHits++;
         if (!(piercing == 0 || validHits < piercing)) { Kill(); }
