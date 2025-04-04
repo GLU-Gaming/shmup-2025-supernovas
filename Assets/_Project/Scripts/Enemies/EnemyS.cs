@@ -5,6 +5,8 @@ public class EnemyS : EnemyBase
 {
     [SerializeField] private GameObject rotationPart;
 
+    private Incoming incomingUI;
+
 
     // dive anim parameters:
     [SerializeField] float speed;
@@ -14,11 +16,13 @@ public class EnemyS : EnemyBase
     [SerializeField] float rMult;
 
 
+
     protected override void Awake()
     {
+        incomingUI = FindAnyObjectByType<Incoming>();
+        rotationPart.SetActive(false);
         base.Awake();
         Dive();
-        creationService.CreateProjectile(3, transform);
     }
 
     public void Dive()
@@ -28,6 +32,14 @@ public class EnemyS : EnemyBase
 
     private IEnumerator DiveAnim()
     {
+        incomingUI.Warn(transform.position);
+
+        yield return new WaitForSeconds(2f);
+
+        rotationPart.SetActive(true);
+        creationService.CreateProjectile(3, transform);
+
+
         float startT = Time.time;
         float localT = 0f;
 
