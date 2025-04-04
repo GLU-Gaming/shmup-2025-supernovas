@@ -32,9 +32,9 @@ public class EnemyS : EnemyBase
 
     private IEnumerator DiveAnim()
     {
-        incomingUI.Warn(transform.position);
+        WaitForSeconds waitTime = incomingUI.Warn(transform.position);
 
-        yield return new WaitForSeconds(2f);
+        yield return waitTime;
 
         rotationPart.SetActive(true);
         creationService.CreateProjectile(3, transform);
