@@ -5,10 +5,24 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenuUI;
+    public GameObject gameOverUI;
+    public GameObject player;
 
-    void Start()
+    void Awake()
     {
         pauseMenuUI.SetActive(false);
+
+        player = FindAnyObjectByType<Player>().gameObject;
+        Health playerHealth = player.GetComponent<Health>();
+        playerHealth.EntityDied += GameOver;
+    }
+
+
+    void GameOver()
+    {
+        player.SetActive(false);
+        gameOverUI.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     void Update()
@@ -21,7 +35,7 @@ public class PauseMenu : MonoBehaviour
                 pauseMenuUI.SetActive(false);
                 Time.timeScale = 1f;
             }
-            else 
+            else
             {
                 pauseMenuUI.SetActive(true);
                 Time.timeScale = 0f;
