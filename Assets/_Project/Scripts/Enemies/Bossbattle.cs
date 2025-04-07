@@ -3,28 +3,50 @@ using UnityEngine;
 
 public class Bossbattle : EnemyBase
 {
-    [SerializeField] private float Speed;
-    [SerializeField] public GameObject projectile;
-    [SerializeField] public GameObject Enemy;
-    public int height;
+    public Transform target;
+    public GameObject Enemy;
+    [SerializeField] public int amountEnemy;
+    public float speed;
+    public bool hi;
+
     void Start()
     {
-        StartCoroutine(Spawning());
+        spinnyDeathAttack();
+        for (int i = 0; i < amountEnemy; i++)
+        {
+            CreateEnemy();
+        }     
     }
     void Update()
     {
-        transform.position = new Vector3(pos.x, pos.y + Mathf.Sin(Time.time) * 4, 0);
+        
     }
-    IEnumerator Spawning()
+    IEnumerator startSequence()
     {
-        while (true)
+        Vector3 Startpos = transform.position;
+        Vector3 Endpos = target.position;
+        if (hi == true)
         {
-            for (int i = 0; i < 4; i++)
-            {
-                Instantiate(projectile,firePoint);
-            }
-            yield return new WaitForSeconds(10f);
-            Instantiate(Enemy, firePoint);
+            Vector3 Startposi = target.position;
+            Vector3 Endposi = transform.position;
         }
+        float Update = 0;
+        float Starttime = Time.time;
+        float Duration = 3f;
+
+        while (Update < 1)
+        {
+            Update = (Time.time - Starttime) / Duration;
+            transform.position = Vector3.Lerp(Startpos, Endpos,Update);
+            yield return new WaitForEndOfFrame();
+        }
+    }
+    public void spinnyDeathAttack()
+    {
+        StartCoroutine(startSequence());
+    }
+    public void CreateEnemy()
+    {
+            Instantiate(Enemy, firePoint.transform.position, Quaternion.identity);
     }
 }
