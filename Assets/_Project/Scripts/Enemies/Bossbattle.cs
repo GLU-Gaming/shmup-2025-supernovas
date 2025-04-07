@@ -10,6 +10,7 @@ public class Bossbattle : EnemyBase
     public GameObject Enemy;
     [SerializeField] public int amountEnemy;
     public float speed;
+    public int y = 2;
 
     void Start()
     {
@@ -20,7 +21,8 @@ public class Bossbattle : EnemyBase
         }     
     }
     void Update()
-    {
+    {   
+        
     }
     IEnumerator startSequence()
     {
@@ -29,17 +31,25 @@ public class Bossbattle : EnemyBase
 
         float Update = 0;
         float Starttime = Time.time;
-        float Duration = 5f;
-        int y = 2;
+        float Duration = 3f;
+
         while (Update < 1)
         {
             Update = (Time.time - Starttime) / Duration;
             transform.position = Vector3.Lerp(Startpos, Endpos,Update);
             yield return new WaitForEndOfFrame();
         }
-        target.position = new Vector3(-7, 4, 0);
+        target.position = new Vector3(-7, 4 - y, 0);
+        y = y + 2;
         transform.position = Vector3.Lerp(Endpos, Startpos, Update);
-        spinnyDeathAttack();
+        if (y < 10)
+        {
+            spinnyDeathAttack();
+        }
+        else 
+        {
+            CreateEnemy();
+        }
     }
     public void spinnyDeathAttack()
     {
