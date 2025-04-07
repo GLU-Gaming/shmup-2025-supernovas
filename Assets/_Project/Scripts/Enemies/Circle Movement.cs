@@ -5,7 +5,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class CircleMovement : MonoBehaviour
 {
-    Vector3 pos;
+    private Vector3 pos;
     public CreationService creationService;
     private Bossbattle bossbattle;
     [SerializeField] private Transform firePoint;
@@ -14,11 +14,12 @@ public class CircleMovement : MonoBehaviour
     public float speedtarget = 1f;
     public float radius = 2f;
     public float angle;
+    public GameObject Projectile;
     void Start()
     {
         bossbattle = FindAnyObjectByType<Bossbattle>();
         pos = transform.position;
-        Startshoot();
+        StartCoroutine(ShootingTime());
     }
 
     void Update()
@@ -26,21 +27,16 @@ public class CircleMovement : MonoBehaviour
         if (bossbattle.spinny > 0)
         {
             transform.position = new Vector3(pos.x, pos.y + Mathf.Sin(Time.time) * 4, 0);
+            Projectile.SetActive(false); 
         }
     }
-    public void Startshoot()
-    {
-        if (bossbattle.spinny > 0)
-        {
-            StartCoroutine(ShootingTime());
-        }
-    }
+        
     IEnumerator ShootingTime()
     {
         while (true)
         {
                
-                yield return new WaitForSeconds(0.4f);
+                yield return new WaitForSeconds(3f);
                 creationService.CreateProjectile(0, firePoint);
         }
     }
