@@ -1,5 +1,6 @@
 using System.Collections;
 using JetBrains.Annotations;
+using NUnit.Framework.Constraints;
 using Unity.VisualScripting;
 using UnityEditor.ProjectWindowCallback;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class Bossbattle : EnemyBase
     [SerializeField] public int amountEnemy;
     public float speed;
     public int y = 2;
+    public int spinny = 0;
 
     void Start()
     {
@@ -48,6 +50,7 @@ public class Bossbattle : EnemyBase
         }
         else 
         {
+            spinny = 1;
             CreateEnemy();
         }
     }
