@@ -8,8 +8,6 @@ using UnityEngine;
 public class Bossbattle : EnemyBase
 {
     public Transform target;
-    public GameObject Enemy;
-    [SerializeField] public int amountEnemy;
     public float speed;
     public int y = 2;
     public int spinny = 0;
@@ -17,10 +15,7 @@ public class Bossbattle : EnemyBase
     void Start()
     {
         spinnyDeathAttack();
-        for (int i = 0; i < amountEnemy; i++)
-        {
-            CreateEnemy();
-        }     
+        
     }
     void Update()
     {   
@@ -51,15 +46,10 @@ public class Bossbattle : EnemyBase
         else 
         {
             spinny = 1;
-            CreateEnemy();
         }
     }
     public void spinnyDeathAttack()
     {
         StartCoroutine(startSequence());
-    }
-    public void CreateEnemy()
-    {
-            Instantiate(Enemy, firePoint.transform.position, Quaternion.identity);
     }
 }
