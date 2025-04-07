@@ -7,11 +7,6 @@ public class MainMenu : MonoBehaviour
     {
         Time.timeScale = 1; 
     }
-
-    void Update()
-    {
-        
-    }
     //Go To Menu
     public void GoToMenu()
     {
@@ -26,6 +21,5 @@ public class MainMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
-        Debug.Log("quit");
     }
 }
