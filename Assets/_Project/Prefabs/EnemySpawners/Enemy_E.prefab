@@ -70,6 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d278dde42a9a54f8cb2fed1e4b9521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 0}
   firePoint: {fileID: 6050464454662099235}
   scoreamount: 100
   speed: 0.24
@@ -89,6 +90,8 @@ MonoBehaviour:
   maxHealth: 2
   currentHealth: 0
   isAlive: 1
+  iFrames: 0
+  titlecard: 0
 --- !u!54 &152004309766006155
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -215,6 +218,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EI schip
       objectReference: {fileID: 0}
+    - target: {fileID: 7071182760956848314, guid: 88d85f0a2a43cbb4796488611a70821a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2d9fe6108d618f34193cad94a74a4be2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -8700617353114198275, guid: 88d85f0a2a43cbb4796488611a70821a, type: 3}
