@@ -27,15 +27,22 @@ public class WaveSpawning : MonoBehaviour
 
     IEnumerator Spawning()
     {
+        int prevWave = 0;
+        int rng1 = 0;
         yield return new WaitForSeconds(loadInGracePeriod);
         while (doSpawning)
         {
-            int rng1 = Random.Range(0,waves.Count);
+            while (rng1 == prevWave)
+            {
+                rng1 = Random.Range(0, waves.Count);
+            }
+
+            prevWave = rng1;
             GameObject wave = Instantiate(waves[rng1]);
             //WaveInfo waveInfo = wave.GetComponent<WaveInfo>();
             float waveLenght = wave.GetComponent<WaveInfo>().waveLenght;
             Destroy(wave, waveLenght);
-            
+
             yield return new WaitForSeconds(waveCooldown + waveLenght);
         }
     }

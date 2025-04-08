@@ -176,6 +176,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: egg projectile
       objectReference: {fileID: 0}
+    - target: {fileID: 7202271454713460447, guid: 57aa237c59cf26c4c978adb3a98e98d4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 97477b88c598d96438aedb615c55510c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -8700617353114198275, guid: 57aa237c59cf26c4c978adb3a98e98d4, type: 3}
