@@ -5,51 +5,24 @@ using Unity.VisualScripting;
 using UnityEditor.ProjectWindowCallback;
 using UnityEngine;
 
-public class Bossbattle : EnemyBase
+public class Bossbattle : MonoBehaviour
 {
-    public Transform target;
-    public float speed;
-    public int y = 2;
-    public int spinny = 0;
-
+    public Transform Target;
+    public float speedtarget = 1f;
+    public float radius = 2f;
+    public float angle;
     void Start()
     {
-        spinnyDeathAttack();
-        
+
     }
+
     void Update()
-    {   
-        
-    }
-    IEnumerator startSequence()
     {
-        Vector3 Startpos = transform.position;
-        Vector3 Endpos = target.position;
-
-        float Update = 0;
-        float Starttime = Time.time;
-        float Duration = 3f;
-
-        while (Update < 1)
-        {
-            Update = (Time.time - Starttime) / Duration;
-            transform.position = Vector3.Lerp(Startpos, Endpos,Update);
-            yield return new WaitForEndOfFrame();
-        }
-        target.position = new Vector3(-7, 4 - y, 0);
-        y = y + 2;
-        transform.position = Vector3.Lerp(Endpos, Startpos, Update);
-        if (y < 10)
-        {
-            spinnyDeathAttack();
-        }
-        else 
-        {
-            spinny = 1;
-        }
+      float x = Target.position.x + Mathf.Cos(angle) * radius;
+      float y = Target.position.y + Mathf.Sin(angle) * radius;
+      float z = Target.position.z;
+      transform.position = new Vector3(x, y, z);
+      angle += speedtarget * Time.deltaTime;
     }
-    public void spinnyDeathAttack()
-    {
-        StartCoroutine(startSequence());
-    }
+  
 }

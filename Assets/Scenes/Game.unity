@@ -529,12 +529,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   creationService: {fileID: 1632447366}
   firePoint: {fileID: 1767728926}
-  Player: {fileID: 999479301}
   Target: {fileID: 1664255673}
-  speedtarget: 1.8
-  radius: 2
-  angle: 0
   Projectile: {fileID: 1664255668}
+  Enemy: {fileID: 436465828625538579, guid: 6704c8b2aba111b41ad615f63e026153, type: 3}
+  amountEnemy: 5
 --- !u!114 &349009849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1379,11 +1377,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1247384246}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!4 &999479301 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6690460397052413277, guid: f751cac2b488c444e9293d4740d6cbbd, type: 3}
-  m_PrefabInstance: {fileID: 2023813865}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1247384244
 GameObject:
   m_ObjectHideFlags: 0
@@ -2048,8 +2041,6 @@ MonoBehaviour:
   firePoint: {fileID: 1767728926}
   scoreamount: 10000
   target: {fileID: 523835204}
-  Enemy: {fileID: 436465828625538579, guid: 6704c8b2aba111b41ad615f63e026153, type: 3}
-  amountEnemy: 3
   speed: 2
   y: 2
   spinny: 0
