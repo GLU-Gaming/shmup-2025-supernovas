@@ -14,14 +14,15 @@ public class CircleMovement : MonoBehaviour
     public GameObject HoldUp;
     public GameObject Player;
     public GameObject Pos;
+    public GameObject Pos2;
     [SerializeField] public int amountEnemy;
     private Vector3 pos;
+    private int Attack2;
     void Start()
     {
         projectileboss = FindAnyObjectByType<ProjectileBoss>();
         pos = transform.position;
         StartCoroutine(ShootingTime());
-        StartCoroutine(startSpinny());
         HoldUp.SetActive(false);
     }
 
@@ -34,41 +35,33 @@ public class CircleMovement : MonoBehaviour
             Projectile.SetActive(false);
             HoldUp.SetActive(true);
         }
+        if (Attack2 > 0)
+        {
+            projectileboss.spinny = 0;
+            HoldUp.SetActive(false);    
+            transform.position = Vector3.MoveTowards(transform.position, Pos2.transform.position, speed);
+            projectileboss.spinny = 1;
+        }
     }
     private void UpdateEnemy()
     {
         StartCoroutine(CreatingEnemy());
     }
-
     IEnumerator ShootingTime()
     {
         while (true)
         { 
-                yield return new WaitForSeconds(3f);
-                creationService.CreateProjectile(0, firePoint);
-               if (projectileboss.spinny > 0)
-               {
-                StartCoroutine(CreatingEnemy());
-               }
+             yield return new WaitForSeconds(3f);
+             creationService.CreateProjectile(0, firePoint);
+             if (projectileboss.spinny > 0)
+            {
+             StartCoroutine(CreatingEnemy());
+            }
         }
     }
     IEnumerator CreatingEnemy()
     {
             yield return new WaitForSeconds(2f);
             Instantiate(Enemy, firePoint.transform.position, Quaternion.identity);
-    }
-    IEnumerator startSpinny()
-    {
-        yield return new WaitForSeconds(17f);
-        StartCoroutine(StartSpinnyAgain());
-    }
-    IEnumerator StartSpinnyAgain()
-    {
-        yield return new WaitForSeconds(1f);
-        Projectile.SetActive(true);
-        HoldUp.SetActive(false);
-        transform.position = new Vector3(6,1,1);
-        Pos.transform.position = new Vector3(-7,5,0);
-        projectileboss.spinnyDeathAttack();
     }
 }
