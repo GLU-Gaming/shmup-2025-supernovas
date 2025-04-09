@@ -6,7 +6,6 @@ public class Boss : MonoBehaviour
     public CreationService creationService;
     private ProjectileBoss projectileboss;
     [SerializeField] private Transform firePoint;
-    public Transform Target;
     public GameObject Projectile;
     public GameObject Enemy;
     public GameObject HoldUp;
