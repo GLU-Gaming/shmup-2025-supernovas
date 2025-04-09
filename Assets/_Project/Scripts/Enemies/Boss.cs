@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Boss : MonoBehaviour
@@ -36,11 +37,16 @@ public class Boss : MonoBehaviour
         if (Attack2 > 0)
         {
             transform.position = Vector3.MoveTowards(transform.position, Pos2.transform.position, speed);
-            HoldUp.SetActive(false);
+            Pos2.transform.position = new Vector3(8, 3, 0);
             projectileboss.spinny = 0;
+            StartCoroutine(MoveScreen());
             StartCoroutine(StartspinnyAgian());
         }
-
+        IEnumerator MoveScreen()
+        {
+            yield return new WaitForSeconds(5f);
+            Pos2.transform.position = new Vector3(-8, -3, 0);
+        }
         IEnumerator AttackAir()
         {
             yield return new WaitForSeconds(15f);
@@ -48,7 +54,7 @@ public class Boss : MonoBehaviour
         }
         IEnumerator StartspinnyAgian()
         {
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(15f);
             Attack2 = 0;
             HoldUp.SetActive(true);
             projectileboss.Spinnystart();
