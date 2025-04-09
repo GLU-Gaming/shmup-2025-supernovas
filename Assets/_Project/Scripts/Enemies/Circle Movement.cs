@@ -38,9 +38,9 @@ public class CircleMovement : MonoBehaviour
         }
         if (Attack2 > 0)
         {
+            transform.position = Vector3.MoveTowards(transform.position, Pos2.transform.position, speed);
             projectileboss.spinny = 0;
             HoldUp.SetActive(false);    
-            transform.position = Vector3.MoveTowards(transform.position, Pos2.transform.position, speed);
             StartCoroutine(StartspinnyAgian());
         }
     }
@@ -50,7 +50,8 @@ public class CircleMovement : MonoBehaviour
     }
     IEnumerator StartspinnyAgian()
     {
-        yield return new WaitForSeconds(15f);
+        yield return new WaitForSeconds(5f);
+        Attack2 = 0;
         projectileboss.Spinnystart();
     }
     IEnumerator AttackAir()

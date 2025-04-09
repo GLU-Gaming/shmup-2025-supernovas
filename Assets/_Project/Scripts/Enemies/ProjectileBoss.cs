@@ -19,7 +19,6 @@ public class ProjectileBoss : MonoBehaviour
     }
     IEnumerator startSequence()
     {
-        spinny = 0;
         Vector3 Startpos = transform.position;
         Vector3 Endpos = target.position;
 
