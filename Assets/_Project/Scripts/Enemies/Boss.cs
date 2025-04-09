@@ -20,7 +20,6 @@ public class Boss : MonoBehaviour
     {
         projectileboss = FindAnyObjectByType<ProjectileBoss>();
         pos = transform.position;
-        StartCoroutine(ShootingTime());
         HoldUp.SetActive(false);
     }
 
@@ -73,5 +72,4 @@ public class Boss : MonoBehaviour
             Instantiate(Enemy, firePoint.transform.position, Quaternion.identity);
         }
     }
-
 }
