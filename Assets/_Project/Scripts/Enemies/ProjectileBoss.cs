@@ -49,4 +49,8 @@ public class ProjectileBoss : MonoBehaviour
     {
         StartCoroutine(startSequence());
     }
+    public void Spinnystart()
+    {
+        spinny = 1;
+    }
 }

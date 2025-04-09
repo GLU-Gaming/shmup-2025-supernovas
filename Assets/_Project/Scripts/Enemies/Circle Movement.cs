@@ -34,18 +34,29 @@ public class CircleMovement : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, speed);
             Projectile.SetActive(false);
             HoldUp.SetActive(true);
+            StartCoroutine(AttackAir()); 
         }
         if (Attack2 > 0)
         {
             projectileboss.spinny = 0;
             HoldUp.SetActive(false);    
             transform.position = Vector3.MoveTowards(transform.position, Pos2.transform.position, speed);
-            projectileboss.spinny = 1;
+            StartCoroutine(StartspinnyAgian());
         }
     }
     private void UpdateEnemy()
     {
         StartCoroutine(CreatingEnemy());
+    }
+    IEnumerator StartspinnyAgian()
+    {
+        yield return new WaitForSeconds(15f);
+        projectileboss.Spinnystart();
+    }
+    IEnumerator AttackAir()
+    {
+        yield return new WaitForSeconds(15f);
+        Attack2 = 1;
     }
     IEnumerator ShootingTime()
     {
