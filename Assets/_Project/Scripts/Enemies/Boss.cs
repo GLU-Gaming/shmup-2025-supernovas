@@ -38,7 +38,6 @@ public class Boss : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, Pos2.transform.position, speed);
             HoldUp.SetActive(false);
             projectileboss.spinny = 0;
-            creationService.CreateEnemy(1, transform);
             StartCoroutine(StartspinnyAgian());
         }
 
