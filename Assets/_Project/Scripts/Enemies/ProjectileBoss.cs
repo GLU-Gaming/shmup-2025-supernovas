@@ -7,7 +7,6 @@ public class ProjectileBoss : MonoBehaviour
     public float speed;
     public int y = 2;
     public int spinny = 0;
-
     void Start()
     {
         spinnyDeathAttack();

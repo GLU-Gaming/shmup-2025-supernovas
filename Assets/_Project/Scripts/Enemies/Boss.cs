@@ -14,9 +14,11 @@ public class Boss : MonoBehaviour
     public GameObject Pos2;
     [SerializeField] public int amountEnemy;
     private Vector3 pos;
-    private int Attack2;
+    public int Attack2;
+    bool AirAttack = false;
     void Start()
     {
+        AirAttack = false;
         projectileboss = FindAnyObjectByType<ProjectileBoss>();
         pos = transform.position;
         StartCoroutine(ShootingTime());
@@ -28,33 +30,30 @@ public class Boss : MonoBehaviour
         float speed = 0.03f;
         if (projectileboss.spinny > 0)
         {
+            HoldUp.SetActive(true);
             transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, speed);
             Projectile.SetActive(false);
-            HoldUp.SetActive(true);
             StartCoroutine(AttackAir());
         }
         if (Attack2 > 0)
         {
             transform.position = Vector3.MoveTowards(transform.position, Pos2.transform.position, speed);
-            projectileboss.spinny = 0;
             HoldUp.SetActive(false);
+            projectileboss.spinny = 0;
             StartCoroutine(StartspinnyAgian());
         }
-    }
-    private void UpdateEnemy()
-    {
-        StartCoroutine(CreatingEnemy());
-    }
-    IEnumerator StartspinnyAgian()
-    {
-        yield return new WaitForSeconds(5f);
-        Attack2 = 0;
-        projectileboss.Spinnystart();
     }
     IEnumerator AttackAir()
     {
         yield return new WaitForSeconds(15f);
         Attack2 = 1;
+    }
+    IEnumerator StartspinnyAgian()
+    {
+        yield return new WaitForSeconds(5f);
+        Attack2 = 0;
+        HoldUp.SetActive(true);
+        projectileboss.Spinnystart();
     }
     IEnumerator ShootingTime()
     {
