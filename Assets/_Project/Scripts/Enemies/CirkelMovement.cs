@@ -2,14 +2,12 @@ using UnityEngine;
 
 public class CirkelMovement : MonoBehaviour
 {
-    private Health health;
     public Transform Target;
     public float speedtarget = 1f;
     public float radius = 2f;
     public float angle;
     void Start()
     {
-       health = FindAnyObjectByType<Health>();
     }
 
     void Update()
@@ -29,9 +27,5 @@ public class CirkelMovement : MonoBehaviour
             health.TakeDamage(1);
         }
     }
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    health.TakeDamage(1);
-    //}
 
 }
