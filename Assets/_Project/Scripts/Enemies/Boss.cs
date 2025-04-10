@@ -31,10 +31,10 @@ public class Boss : MonoBehaviour
         HoldUp.SetActive(false);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         health.EntityDied += Victory;
-        float speed = 0.03f;
+        float speed = 0.05f;
         if (projectileboss.spinny > 0)
         {
             HoldUp.SetActive(true);
