@@ -85,5 +85,7 @@ public class Boss : MonoBehaviour
          {
            Win.SetActive(true);
            Destroy(gameObject);
+           Destroy(Player);
+        HoldUp.SetActive(false);
          }
 }
