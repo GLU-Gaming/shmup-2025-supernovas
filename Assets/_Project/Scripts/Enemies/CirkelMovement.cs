@@ -9,7 +9,7 @@ public class CirkelMovement : MonoBehaviour
     public float angle;
     void Start()
     {
-        health = FindAnyObjectByType<Health>();
+       health = FindAnyObjectByType<Health>();
     }
 
     void Update()
