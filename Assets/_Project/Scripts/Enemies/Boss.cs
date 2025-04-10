@@ -6,8 +6,10 @@ using UnityEngine;
 public class Boss : MonoBehaviour
 {
     public CreationService creationService;
+    public Health health;
     private ProjectileBoss projectileboss;
     [SerializeField] private Transform firePoint;
+    public GameObject Win;
     public GameObject Projectile;
     public GameObject Enemy;
     public GameObject HoldUp;
@@ -19,6 +21,7 @@ public class Boss : MonoBehaviour
     public int Attack2;
     void Start()
     {
+        health = GetComponent<Health>();
         projectileboss = FindAnyObjectByType<ProjectileBoss>();
         pos = transform.position;
         HoldUp.SetActive(false);
@@ -26,6 +29,7 @@ public class Boss : MonoBehaviour
 
     void Update()
     {
+        health.EntityDied += Victory;
         float speed = 0.03f;
         if (projectileboss.spinny > 0)
         {
@@ -77,4 +81,9 @@ public class Boss : MonoBehaviour
             Instantiate(Enemy, firePoint.transform.position, Quaternion.identity);
         }
     }
+           public void Victory()
+         {
+           Win.SetActive(true);
+           Destroy(gameObject);
+         }
 }
