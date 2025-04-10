@@ -2329,7 +2329,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creationService: {fileID: 1632447366}
+  health: {fileID: 0}
   firePoint: {fileID: 242591051}
+  Win: {fileID: 0}
   Projectile: {fileID: 61204583}
   Enemy: {fileID: 436465828625538579, guid: 6704c8b2aba111b41ad615f63e026153, type: 3}
   HoldUp: {fileID: 225051666}
@@ -3448,6 +3450,7 @@ MonoBehaviour:
   - {fileID: 436465828625538579, guid: 6704c8b2aba111b41ad615f63e026153, type: 3}
   - {fileID: 4522292191621643153, guid: 8cdb01f2c04db40429339b69d18b6f8b, type: 3}
   - {fileID: 6771600807827167131, guid: 34e695b49c99ed74c8c6cfa13945cb1e, type: 3}
+  - {fileID: 438195773975144865, guid: a5f48c45c0b558d46b4209581d2aab57, type: 3}
 --- !u!4 &1632447367
 Transform:
   m_ObjectHideFlags: 0
@@ -3477,10 +3480,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadInGracePeriod: 2
   waveCooldown: 1
+  totalWavesPassed: 0
+  wavesTillBoss: 10
   waves:
   - {fileID: 3649269112375477280, guid: 8f09f498cdbed9b45bbb9cf057f8d3ef, type: 3}
   - {fileID: 207229138109907416, guid: da580414b464d6c4fb0c0c3e460864ae, type: 3}
   - {fileID: 752139346743877810, guid: 6abe1950ea8f3e941a251c0773445a59, type: 3}
+  bossWave: {fileID: 6071198396435928608, guid: 5b0db62768c2ca84284ed1e1bc069161, type: 3}
 --- !u!1 &1637690458
 GameObject:
   m_ObjectHideFlags: 0
