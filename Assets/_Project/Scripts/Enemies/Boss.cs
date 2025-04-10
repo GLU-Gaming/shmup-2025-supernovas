@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Boss : MonoBehaviour
@@ -17,6 +15,11 @@ public class Boss : MonoBehaviour
     [SerializeField] public int amountEnemy;
     private Vector3 pos;
     public int Attack2;
+
+    void Awake()
+    {
+        Player = FindAnyObjectByType<Player>().gameObject;
+    }
     void Start()
     {
         projectileboss = FindAnyObjectByType<ProjectileBoss>();
@@ -59,22 +62,22 @@ public class Boss : MonoBehaviour
             HoldUp.SetActive(true);
             projectileboss.Spinnystart();
         }
-        IEnumerator ShootingTime()
-        {
-            while (true)
-            {
-                yield return new WaitForSeconds(3f);
-                creationService.CreateProjectile(0, firePoint);
-                if (projectileboss.spinny > 0)
-                {
-                    StartCoroutine(CreatingEnemy());
-                }
-            }
-        }
-        IEnumerator CreatingEnemy()
-        {
-            yield return new WaitForSeconds(2f);
-            Instantiate(Enemy, firePoint.transform.position, Quaternion.identity);
-        }
+//        IEnumerator ShootingTime()
+//        {
+//            while (true)
+//            {
+//                yield return new WaitForSeconds(3f);
+//                creationService.CreateProjectile(0, firePoint);
+//                if (projectileboss.spinny > 0)
+//                {
+//                    StartCoroutine(CreatingEnemy());
+//                }
+//            }
+//        }
+//        IEnumerator CreatingEnemy()
+//        {
+//            yield return new WaitForSeconds(2f);
+//            Instantiate(Enemy, firePoint.transform.position, Quaternion.identity);
+//        }
     }
 }
