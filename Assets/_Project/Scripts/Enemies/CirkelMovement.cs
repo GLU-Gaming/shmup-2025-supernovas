@@ -20,9 +20,18 @@ public class CirkelMovement : MonoBehaviour
         transform.position = new Vector3(x, y, z);
         angle += speedtarget * Time.deltaTime;
     }
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider other)
     {
-        health.TakeDamage(1);
+        Health health = other.GetComponent<Health>();
+        if (health)
+        {
+            health.TakeDamage(1);
+        }
     }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    health.TakeDamage(1);
+    //}
 
 }
