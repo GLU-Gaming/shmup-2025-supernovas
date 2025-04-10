@@ -52,7 +52,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -73,6 +73,8 @@ MonoBehaviour:
   damage: 1
   lifespan: 3
   piercing: 0
+  hitboxActiveAfter: 0.05
+  hitboxActiveFor: 0.15
   scaleStart: {x: 0.5, y: 0.5, z: 0.5}
   scaleUpTo: {x: 3, y: 3, z: 3}
   scaleDownTo: {x: 0, y: 0, z: 0}
@@ -174,6 +176,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: egg projectile
       objectReference: {fileID: 0}
+    - target: {fileID: 7202271454713460447, guid: 57aa237c59cf26c4c978adb3a98e98d4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 97477b88c598d96438aedb615c55510c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -8700617353114198275, guid: 57aa237c59cf26c4c978adb3a98e98d4, type: 3}

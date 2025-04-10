@@ -7,18 +7,20 @@ public class EnemyA : EnemyBase
     [SerializeField] private GameObject RotationPart;
     [SerializeField] private float RotationSpeed = 3;
 
-    void Start()
+
+    protected override void Start()
     {
+        base.Start();
         StartCoroutine(FireProjectile());
     }
     private void FixedUpdate()
     {
         pos.x -= Speed;
-        RotationPart.transform.rotation *= Quaternion.Euler(new Vector3(0, 0, 1) * RotationSpeed * (0.5f * Mathf.Cos(Time.time) + 0.75f));
+        RotationPart.transform.rotation *= Quaternion.Euler(new Vector3(0, 0, 1) * RotationSpeed * (0.5f * Mathf.Cos(Time.time - startTime) + 0.75f));
     }
     void Update()
     {
-        transform.position = new Vector3(pos.x, pos.y + Mathf.Sin(Time.time) * 4, 0);
+        transform.position = new Vector3(pos.x, pos.y + Mathf.Sin(Time.time - startTime) * 4, 0);
     }
     IEnumerator FireProjectile()
     {

@@ -13,7 +13,13 @@ public class Score : MonoBehaviour
     public void UiUpdate(int amount)
     {
         score = score + amount;
-        score = Mathf.Clamp(score, 0, 2147483647);
-        scoreText.text = "Score: " + score;
+        string numberString = score.ToString();
+        string scoreString = "Score: ";
+        for (int i = 0; i < 5 - numberString.Length; i++)
+        {
+            scoreString += 0;
+        }
+        scoreString += numberString;
+        scoreText.text = scoreString;
     }
 }
