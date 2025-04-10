@@ -2329,7 +2329,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creationService: {fileID: 1632447366}
+  health: {fileID: 1114802732}
   firePoint: {fileID: 242591051}
+  Win: {fileID: 62289274}
   Projectile: {fileID: 61204583}
   Enemy: {fileID: 436465828625538579, guid: 6704c8b2aba111b41ad615f63e026153, type: 3}
   HoldUp: {fileID: 225051666}
