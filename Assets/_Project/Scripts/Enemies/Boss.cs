@@ -21,6 +21,7 @@ public class Boss : MonoBehaviour
     void Awake()
     {
         Player = FindAnyObjectByType<Player>().gameObject;
+        Win = FindAnyObjectByType<PauseMenu>().victoryUI;
     }
     void Start()
     {
@@ -87,8 +88,9 @@ public class Boss : MonoBehaviour
     public void Victory()
     {
         Win.SetActive(true);
-        Destroy(gameObject);
-        Destroy(Player);
-        HoldUp.SetActive(false);
+        Time.timeScale = 0f;
+        //Destroy(gameObject);
+        //Destroy(Player);
+        //HoldUp.SetActive(false);
     }
 }

@@ -6,6 +6,7 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenuUI;
     public GameObject gameOverUI;
+    public GameObject victoryUI;
     public GameObject player;
 
     void Awake()
