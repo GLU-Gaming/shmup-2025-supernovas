@@ -51,4 +51,13 @@ public class ProjectileBoss : MonoBehaviour
     {
         spinny = 1;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Health health = other.GetComponent<Health>();
+        if (health)
+        {
+            health.TakeDamage(1);
+        }
+    }
 }
